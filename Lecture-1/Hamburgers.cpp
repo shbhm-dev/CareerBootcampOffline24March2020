@@ -17,7 +17,6 @@ ll Hamburgers(char *in,int nb,int ns,int nc,int pb,int ps,int pc,ll r){
 		else cc++;
 	}
 
-
 	while(s<=e){
 
 		ll mid = (s+e)/2; // To check can we make mid burgers or not?
