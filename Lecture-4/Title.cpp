@@ -40,7 +40,7 @@ void Title(char *a,int k){
 
 		if(a[i] == '?' && a[j] == '?') {
 			a[i] = a[j] = 'a'+k-1;
-			map[a[i] - 'a'+1]= true;
+			map[k]= true;
 			i--;
 			j++;
 		}

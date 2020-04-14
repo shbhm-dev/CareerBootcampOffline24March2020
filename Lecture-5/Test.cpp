@@ -12,6 +12,7 @@ using namespace std;
 #define P1(a,n) for(int i=1;i<=n;i++){cout<<a[i]<<' ';}cout<<endl;
 #define AS 200001
 
+
 int main(){
 
 
