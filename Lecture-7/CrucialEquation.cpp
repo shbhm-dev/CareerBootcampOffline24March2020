@@ -1,4 +1,5 @@
-// Euclid
+// CrucialEquation.cpp
+// Euclid: https://www.spoj.com/problems/CEQU/
 #include <iostream>
 using namespace std;
 
@@ -24,18 +25,28 @@ int eea(int a,int b,int &x,int &y){
 }
 
 int moduleInverse(int a,int m){
-	int x,y;
+	int x,y; // a and m should be co-prime!!!!!!!
 	eea(a,m,x,y);
 	return x;
 }
 
+bool diophantine(int x,int y,int c){
+	if(c%gcd(x,y) != 0){
+		return false;
+	}
+	return true;
+}
+
 int main(){
-	int a,b;
-	cin>>a>>b;
-	// cout<<gcd(a,b)<<endl;
-	// int x,y;
-	// cout<<eea(a,b,x,y)<<endl;
-	cout<<moduleInverse(a,b)<<endl;
+	int t;
+	cin>>t;
+	int count = 1;
+	while(t--){
+		int x,y,c;cin>>x>>y>>c;
+		cout<<"Case "<<count++<<": ";
+		if(diophantine(x,y,c)) cout<<"Yes"<<endl;
+		else cout<<"No"<<endl;
+	}	
 
 
 	return 0;
