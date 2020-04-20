@@ -1,7 +1,7 @@
-// GenerateParantheses
-// Problem link : 
+// Problem link : https://www.spoj.com/problems/STAR3CAS/
 #include <iostream>
 #include <vector>
+#include <climits>
 #include <algorithm>
 #include <cstring>
 #include <map>
@@ -25,29 +25,48 @@ using namespace std;
 #define PNF(a,n,m) for(int i=0;i<n;i++){for(int j=0;j<m;j++){cout<<a[i][j]<<' ';}cout<<endl;}cout<<endl;
 #define PNF1(a,n,m) for(int i=1;i<=n;i++){for(int j=1;j<=m;j++){cout<<a[i][j]<<' ';}cout<<endl;}cout<<endl;
 #define AS 200001
+int ans = INT_MAX;
 
-void GenerateParantheses(int n,int i,char* out,int open,int close){
-	// Base 
-	if(i == 2*n){
-		out[i] = '\0';
-		cout<<out<<endl;
+void StairCase(int *a,int n,int stair,int steps,bool visited[]){
+	// Base case
+	if(stair == n){
+		// Calculate the minimum steps
+		ans = min(ans,steps);
 		return;
 	}
-	if(close<open){
-		out[i] = ')';
-		GenerateParantheses(n,i+1,out,open,close+1);
+	// Mei stair par khada hoon
+	visited[stair] = true;
+
+	// Recursive case
+	// We can either go to i+1
+	if(stair+1<=n && !visited[stair+1]){
+		StairCase(a,n,stair+1,steps+1,visited);
 	}
-	if(open<n){
-		out[i] = '(';
-		GenerateParantheses(n,i+1,out,open+1,close);
+	// We can either go to i+a[i]
+	if(stair+a[stair]<=n && stair+a[stair]>=0 &&  !visited[stair+a[stair]]){
+		StairCase(a,n,stair+a[stair],steps+1,visited);
 	}
+	visited[stair] = false;
+	return;
 }
 
+
 int main(){
-	int n;
-	cin>>n;
-	char out[100];
-	GenerateParantheses(n,0,out,0,0);
+
+	int t;
+	cin>>t;
+	while(t--){
+		int n;
+		cin>>n;
+		bool visited[10000] = {0};
+
+		int *a = new int[n+1];
+		ans = INT_MAX;
+
+		F(a,n);
+		StairCase(a,n,0,0,visited);
+		cout<<ans<<endl;
+	}
 
 
 	return 0;

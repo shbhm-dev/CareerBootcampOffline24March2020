@@ -1,4 +1,4 @@
-// GenerateParantheses
+// PairsOfNumbers
 // Problem link : 
 #include <iostream>
 #include <vector>
@@ -26,28 +26,28 @@ using namespace std;
 #define PNF1(a,n,m) for(int i=1;i<=n;i++){for(int j=1;j<=m;j++){cout<<a[i][j]<<' ';}cout<<endl;}cout<<endl;
 #define AS 200001
 
-void GenerateParantheses(int n,int i,char* out,int open,int close){
-	// Base 
-	if(i == 2*n){
-		out[i] = '\0';
-		cout<<out<<endl;
-		return;
+int ans = INT_MAX;
+
+void Fun(int a,int b,int cnt){
+	// base case
+	if(a == 1 && b == 1) ans = min(ans,cnt);
+
+	if(a-b>0) Fun(a-b,b,cnt+1);
+	if(b-a>0) Fun(a,b-a,cnt+1);
+}
+
+void Pairs(int n){
+	if(n == 1) {cout<<0<<endl; return;}
+	for(int x = 1;x<n;x++){
+		Fun(x,n-x,1);
 	}
-	if(close<open){
-		out[i] = ')';
-		GenerateParantheses(n,i+1,out,open,close+1);
-	}
-	if(open<n){
-		out[i] = '(';
-		GenerateParantheses(n,i+1,out,open+1,close);
-	}
+	cout<<ans<<endl;
 }
 
 int main(){
 	int n;
 	cin>>n;
-	char out[100];
-	GenerateParantheses(n,0,out,0,0);
+	Pairs(n);
 
 
 	return 0;

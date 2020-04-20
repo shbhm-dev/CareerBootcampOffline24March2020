@@ -1,4 +1,4 @@
-// GenerateParantheses
+// StringEquivalance
 // Problem link : 
 #include <iostream>
 #include <vector>
@@ -25,29 +25,33 @@ using namespace std;
 #define PNF(a,n,m) for(int i=0;i<n;i++){for(int j=0;j<m;j++){cout<<a[i][j]<<' ';}cout<<endl;}cout<<endl;
 #define PNF1(a,n,m) for(int i=1;i<=n;i++){for(int j=1;j<=m;j++){cout<<a[i][j]<<' ';}cout<<endl;}cout<<endl;
 #define AS 200001
+int N;
 
-void GenerateParantheses(int n,int i,char* out,int open,int close){
-	// Base 
-	if(i == 2*n){
-		out[i] = '\0';
-		cout<<out<<endl;
+void StringEquivalance(char *a,int i,char c){
+	// base case
+	if(i == N){
+		a[i] = '\0';
+		cout<<a<<endl;
 		return;
 	}
-	if(close<open){
-		out[i] = ')';
-		GenerateParantheses(n,i+1,out,open,close+1);
-	}
-	if(open<n){
-		out[i] = '(';
-		GenerateParantheses(n,i+1,out,open+1,close);
+
+	// Recursive case
+	for(char ch = 'a';ch<=c;ch++){
+		a[i] = ch;
+		if(ch == c){
+			StringEquivalance(a,i+1,c+1);
+		}
+		else{
+			StringEquivalance(a,i+1,c);
+		}
 	}
 }
 
+
 int main(){
-	int n;
-	cin>>n;
-	char out[100];
-	GenerateParantheses(n,0,out,0,0);
+	cin>>N;
+	char a[100];
+	StringEquivalance(a,0,'a');
 
 
 	return 0;
