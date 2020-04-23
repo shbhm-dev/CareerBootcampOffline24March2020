@@ -24,9 +24,16 @@ int eea(int a,int b,int &x,int &y){
 }
 
 int moduleInverse(int a,int m){
-	int x,y;
+	int x,y; // a and m should be co-prime!!!!!!!
 	eea(a,m,x,y);
 	return x;
+}
+
+bool diophantine(int x,int y,int c){
+	if(c%gcd(x,y) != 0){
+		return false;
+	}
+	return true;
 }
 
 int main(){
