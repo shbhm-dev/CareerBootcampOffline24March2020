@@ -16,7 +16,7 @@ node* LCA(TreeNode* root,TreeNode* p,TreeNode* q){
 	}
 
 	// left mei kaun kaunsi hai P and Q mei se batao?
-	node* left = LCA(root->left,p.q);
+	node* left = LCA(root->left,p,q);
 	if(left!=NULL && left->n!=NULL) return left;
 	// Check whether there is P and Q in right or not?
 	node* right = LCA(root->right,p,q);
@@ -43,7 +43,7 @@ node* LCA(TreeNode* root,TreeNode* p,TreeNode* q){
 	}
 	else if(left) return left;
 	else if(right) return right;
-	else return NULL;=
+	else return NULL;
 }
 
 
