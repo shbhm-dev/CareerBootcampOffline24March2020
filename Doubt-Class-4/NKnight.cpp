@@ -10,14 +10,14 @@ bool isValid(int i,int j){
 }
 // i-2,j-1
 bool KyaSafeHai(int i,int j){
-	if(isValid(i-2,j-1) && board[i-1][j-1]) return false;
+	if(isValid(i-2,j-1) && board[i-2][j-1]) return false;
 	if(isValid(i-1,j-2) && board[i-1][j-2]) return false;
 	if(isValid(i+1,j-2) && board[i+1][j-2]) return false;
 	if(isValid(i+2,j-1) && board[i+2][j-1]) return false;
 	if(isValid(i+2,j+1) && board[i+2][j+1]) return false;
 	if(isValid(i+1,j+2) && board[i+1][j+2]) return false;
 	if(isValid(i-1,j+2) && board[i-1][j+2]) return false;
-	if(isValid(i-2,j+1) && board[i-1][j+1]) return false;
+	if(isValid(i-2,j+1) && board[i-2][j+1]) return false;
 	return true;
 }
 
