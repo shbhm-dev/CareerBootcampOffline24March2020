@@ -15,7 +15,7 @@ ll Synthetic(ll x,ll y,ll z,int i){
 	ll op2 = Synthetic(x+bamboos[i],y,z,i+1) + ((x>0)?10:0);
 	ll op3 = Synthetic(x,y+bamboos[i],z,i+1) + ((y>0)?10:0);
 	ll op4 = Synthetic(x,y,z+bamboos[i],i+1) + ((z>0)?10:0);
-	return min(op1,min(op2,min(op3,op4)));
+	return min(op1,min(op2,min(op3,op4))); 
 }
 
 int main(){
