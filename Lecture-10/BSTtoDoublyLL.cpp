@@ -1,4 +1,4 @@
-// BSTtoDoubleLL
+// BSTtoDoubleLL : https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/
 class Solution {
 	class LinkedList{
 	public:
@@ -38,11 +38,12 @@ class Solution {
     		// left!=NULL && right!=NULL
     		LinkedList left = BSTtoLL(root->left);
     		LinkedList right = BSTtoLL(root->right);
-    		
+
     	}
     }
 public:
     Node* treeToDoublyList(Node* root) {
-        
+        LinkedList l = BSTtoLL(root);
+        return l.head;
     }
 };
