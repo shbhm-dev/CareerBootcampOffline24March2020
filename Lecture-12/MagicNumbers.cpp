@@ -47,15 +47,15 @@ int main(){
 	s = a;
 	memset(dp,-1,sizeof dp);
 	ans = (ans - Solve(0,0,1,0,0)+mod)%mod;
-	
+
 	ll mo = 0;
 	bool flag = true;
 	for(ll i = 0;i<a.length();i++){
-		if(i%2 == 0 && (a[i]-'0')==d){
+		if(i%2 == 0 && (a[i]-'0')!=d){ // if i%2 == 0, that means position is odd, thus it should not have d
 			flag = false;
 			break;
 		}
-		if(i%2 && (a[i]-'0')!=d ){
+		if(i%2 && (a[i]-'0') ==d ){
 			flag = false;
 			break;
 		}
