@@ -5,9 +5,9 @@ using namespace std;
 double dp[2001][2001] = {0};
 int n,t;
 double p;
+
 double Solve(){
 	dp[0][0] = 1;
-
 	for(int i = 1;i<=t; i++){
 		for(int j = 0;j<=n;j++){
 			if(j == n){
