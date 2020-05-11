@@ -56,15 +56,22 @@ double solveP(ll r,ll s, ll p){
 }
 
 int main(){
-	
-	cin>>r>>s>>p;
+	#ifndef ONLINE_JUDGE
+	freopen("input.txt","r",stdin);
+	freopen("output.txt","w",stdout);
+	#endif
+	int t;
+	cin>>t;
+	while(t--){
+		cin>>r>>s>>p;
 
-	memset(dp,-1,sizeof dp);
-	cout<<fixed<<setprecision(9)<<solveR(r,s,p)<<" ";
-	memset(dp,-1,sizeof dp);
-	cout<<fixed<<setprecision(9)<<solveS(r,s,p)<<" ";
-	memset(dp,-1,sizeof dp);
-	cout<<fixed<<setprecision(9)<<solveP(r,s,p)<<" ";
-	cout<<endl;
+		memset(dp,-1,sizeof dp);
+		cout<<fixed<<setprecision(9)<<solveR(r,s,p)<<" ";
+		memset(dp,-1,sizeof dp);
+		cout<<fixed<<setprecision(9)<<solveS(r,s,p)<<" ";
+		memset(dp,-1,sizeof dp);
+		cout<<fixed<<setprecision(9)<<solveP(r,s,p)<<" ";
+		cout<<endl;
+	}
 	return 0;
 }
